@@ -32,6 +32,8 @@ import ManUnderwear from "pages/ManUnderwear";
 import MensAccessories from "pages/MensAccessories";
 import MensDiscount from "pages/MensDiscount";
 import OrderDetail from "components/OrderDetail";
+import AdminOrderDetail from "components/Admin/pages/AdminOrder/OrderDetail";
+import AdminHome from "components/Admin/pages/AdminHome";
 
 const RouterApp: React.FC = () => {
     const { search } = useLocation();
@@ -123,7 +125,7 @@ const RouterApp: React.FC = () => {
             children: [
                 {
                     path: "/admin",
-                    element: isAdmin ? <Home /> : <Navigate to='/' replace />,
+                    element: <AdminHome />,
                 },
             ],
         },
@@ -214,6 +216,10 @@ const RouterApp: React.FC = () => {
                 {
                     path: "/admin/orders",
                     element: <AdminOrder />,
+                },
+                {
+                    path: "/admin/orders/:id",
+                    element: <AdminOrderDetail />,
                 },
             ],
         },

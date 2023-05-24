@@ -266,7 +266,7 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
                             style={{
                                 margin: "0 12px",
                                 fontSize: "16px",
-                                color: "#c4c4c4",
+                                color: "#333",
                                 fontWeight: "600",
                             }}
                         >
@@ -342,7 +342,10 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
                     ))}
                 </Grid>
             </Box>
-            <Grid container>
+            <div style={{ textAlign: "left", marginBottom: "8px" }}>
+                {product?.quantity} sản phẩm sẵn có
+            </div>
+            <Grid container sx={{ display: "flex", alignItems: "center" }}>
                 <Box className={classes.productQuantity}>
                     <RemoveIcon
                         fontSize='small'
@@ -365,6 +368,7 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
                         sx={{ cursor: "pointer" }}
                     />
                 </Box>
+
                 <Button
                     color='warning'
                     variant='outlined'

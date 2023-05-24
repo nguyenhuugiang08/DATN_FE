@@ -76,6 +76,9 @@ const AdminCategory = () => {
             field: "deleted",
             headerName: "Trạng thái xóa",
             width: 170,
+            renderCell(params) {
+                return <div>{params.value ? "Đã xóa" : "Đang sử dụng"}</div>;
+            },
             sortable: false,
         },
         {
@@ -171,12 +174,7 @@ const AdminCategory = () => {
     return (
         <>
             <Box className={classes.containerBox}>
-                <Typography className={`${classes.headingAlias} ${classes.titleForm}`}>
-                    Danh mục sản phẩm
-                    <Link to='trash-categories' className={classes.linkTrash}>
-                        Trash
-                    </Link>
-                </Typography>
+                <Typography className={`${classes.headingAlias}`}>Danh mục sản phẩm</Typography>
                 <Button color='success' variant='contained'>
                     <Link to='create-category' className={classes.linkAddAlias}>
                         <CreateNewFolderIcon sx={{ mr: 1 }} />

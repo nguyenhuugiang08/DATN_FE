@@ -92,7 +92,7 @@ const CheckboxField: React.FC<CustomInputProps & FieldProps> = ({
     }, [currentValue]);
 
     const handleChangeCheckboxField = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const index = form.values[`${name}`]?.map((item: any) => item._id)?.indexOf(e.target.value);
+        const index = form.values[`${name}`]?.map((item: any) => item?._id)?.indexOf(e.target.value);
 
         if (index === -1) {
             setValuesCheckboxes([

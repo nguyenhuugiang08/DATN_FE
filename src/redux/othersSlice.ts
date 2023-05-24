@@ -34,16 +34,38 @@ export const search = createAsyncThunk("alias/trash", async (params: Params) => 
     }
 });
 
+export const getReport = createAsyncThunk("others/report", async (year: string | undefined) => {
+    try {
+        const response = await othersApi.report(year);
+        return response.data;
+    } catch (err) {
+        let error: AxiosError<ValidationErrors> = err as AxiosError<ValidationErrors>;
+        if (!error.response) {
+            throw err;
+        }
+        return error.response.data;
+    }
+});
+
 interface OthersState {
     error: string | null | undefined;
     dataHome: HomeData;
     dataSearch: {};
+    report: {
+        countUser: number | string;
+        countProduct: number | string;
+        countOrder: number | string;
+        countCategory: number | string;
+        revenueByMonthAllMonths: number[];
+        listProducts: any[];
+    };
 }
 
 const initialState = {
     dataHome: {},
     dataSearch: {},
     error: null,
+    report: {},
 } as OthersState;
 
 const othersSlice = createSlice({
@@ -66,6 +88,17 @@ const othersSlice = createSlice({
             state.dataSearch = { ...payload };
         });
         builder.addCase(search.rejected, (state, action) => {
+            if (action.payload) {
+                state.error = "Have got an exception!";
+            } else {
+                state.error = action.error.message;
+            }
+        });
+
+        builder.addCase(getReport.fulfilled, (state, { payload }) => {
+            state.report = { ...payload };
+        });
+        builder.addCase(getReport.rejected, (state, action) => {
             if (action.payload) {
                 state.error = "Have got an exception!";
             } else {

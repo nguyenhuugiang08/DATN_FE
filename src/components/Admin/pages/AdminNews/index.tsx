@@ -185,12 +185,7 @@ const AdminNews = () => {
     return (
         <>
             <Box className={classes.containerBox}>
-                <Typography className={classes.headingNews}>
-                    product News
-                    <Link to='trash-news' className={classes.linkTrash}>
-                        Trash
-                    </Link>
-                </Typography>
+                <Typography className={classes.headingNews}>Tin tức</Typography>
                 <Button color='success' variant='contained'>
                     <Link to='create-news' className={classes.linkAddNews}>
                         <CreateNewFolderIcon sx={{ mr: 1 }} />

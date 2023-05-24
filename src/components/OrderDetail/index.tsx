@@ -83,10 +83,10 @@ const OrderDetail = () => {
                 <Grid container>
                     <Grid xs={1}></Grid>
                     <Grid item xs={10}>
-                        <Grid container>
+                        <Grid container columns={15}>
                             <Grid
                                 item
-                                xs={2}
+                                xs={3}
                                 className={`filter-order ${
                                     filter === "Tất cả" ? "filter-order--active" : ""
                                 }`}
@@ -96,7 +96,7 @@ const OrderDetail = () => {
                             </Grid>
                             <Grid
                                 item
-                                xs={2}
+                                xs={3}
                                 className={`filter-order ${
                                     filter === "Chờ xác nhận" ? "filter-order--active" : ""
                                 }`}
@@ -106,17 +106,7 @@ const OrderDetail = () => {
                             </Grid>
                             <Grid
                                 item
-                                xs={2}
-                                className={`filter-order ${
-                                    filter === "Chờ lấy hàng" ? "filter-order--active" : ""
-                                }`}
-                                onClick={() => setFilter("Chờ lấy hàng")}
-                            >
-                                Chờ lấy hàng
-                            </Grid>
-                            <Grid
-                                item
-                                xs={2}
+                                xs={3}
                                 className={`filter-order ${
                                     filter === "Đang giao" ? "filter-order--active" : ""
                                 }`}
@@ -126,7 +116,7 @@ const OrderDetail = () => {
                             </Grid>
                             <Grid
                                 item
-                                xs={2}
+                                xs={3}
                                 className={`filter-order ${
                                     filter === "Đã giao" ? "filter-order--active" : ""
                                 }`}
@@ -136,7 +126,7 @@ const OrderDetail = () => {
                             </Grid>
                             <Grid
                                 item
-                                xs={2}
+                                xs={3}
                                 className={`filter-order ${
                                     filter === "Đã hủy" ? "filter-order--active" : ""
                                 }`}
@@ -144,7 +134,7 @@ const OrderDetail = () => {
                             >
                                 Đã hủy
                             </Grid>
-                            <Grid item xs={12} className='col-md-12' id='filter-order'>
+                            <Grid item xs={15} className='col-md-12' id='filter-order'>
                                 {ordersFilter.length ? (
                                     <div>
                                         {ordersFilter?.map((order) => (

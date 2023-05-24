@@ -1,4 +1,4 @@
-import { AxiosInstance } from "axios";
+import axios, { AxiosInstance } from "axios";
 import axiosClient from "./axiosClient";
 
 const baseUrl = "/order";
@@ -24,6 +24,9 @@ const orderApi = {
     ) => {
         return axios.put(`${baseUrl}/change-status/${id}`, { status: newStatus });
     },
+    getAllOrder: (axios: AxiosInstance) => {
+        return axios.get(`${baseUrl}`);
+    }
 };
 
 export default orderApi;

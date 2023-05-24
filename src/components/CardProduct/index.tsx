@@ -162,8 +162,18 @@ const CardProduct: React.FC<CardProductProps> = ({ products, totalColumn, spacin
                             component={"span"}
                             variant={"body2"}
                         >
-                            {formatPrice(product?.price)}
-                            <u>đ</u>
+                            {Number(product?.discount) !== 0 ? (
+                                <div>
+                                    {formatPrice(
+                                        (Number(product?.price) *
+                                            (100 - Number(product?.discount))) /
+                                            100
+                                    )}
+                                    <u>đ</u>
+                                </div>
+                            ) : (
+                                <div>{formatPrice(product?.price)}đ</div>
+                            )}
                         </Typography>
                         <Typography
                             className={classes.productPromotional}
@@ -172,13 +182,7 @@ const CardProduct: React.FC<CardProductProps> = ({ products, totalColumn, spacin
                         >
                             {Number(product?.discount) !== 0 && (
                                 <div>
-                                    <del>
-                                        {formatPrice(
-                                            (Number(product?.price) * Number(product?.discount)) /
-                                                100
-                                        )}
-                                        đ
-                                    </del>
+                                    <del>{formatPrice(product?.price)}đ</del>
                                     <Typography
                                         className={classes.productDiscount}
                                         component={"span"}

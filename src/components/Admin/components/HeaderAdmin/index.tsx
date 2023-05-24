@@ -50,9 +50,6 @@ const HeaderAdmin: React.FC = () => {
         <div className={classes.container}>
             <MenuIcon sx={{ color: "#878787", marginRight: "25px" }} />
             <Box className={classes.headerRight}>
-                <SettingsIcon sx={{ color: "#878787", marginX: "9px" }} />
-                <AppsIcon sx={{ color: "#878787", marginX: "9px" }} />
-                <NotificationsIcon sx={{ color: "#878787", marginX: "9px" }} />
                 <StyledBadge
                     overlap='circular'
                     anchorOrigin={{ vertical: "bottom", horizontal: "right" }}

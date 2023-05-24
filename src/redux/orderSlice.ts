@@ -38,11 +38,28 @@ export const getOrderById = createAsyncThunk("order/getById", async (id: string 
     }
 });
 
+export const getAllOrder = createAsyncThunk<Order[], AxiosInstance>(
+    "order/getAllOrders",
+    async (axiosRefresh: AxiosInstance) => {
+        try {
+            const response = await orderApi.getAllOrder(axiosRefresh);
+            return response.data?.orders;
+        } catch (err) {
+            let error: AxiosError<ValidationErrors> = err as AxiosError<ValidationErrors>;
+            if (!error.response) {
+                throw err;
+            }
+            return error.response.data;
+        }
+    }
+);
+
 interface ProductState {
     error: string | null | undefined;
     orders: Order[];
     order: Order;
     loading: boolean;
+    allOrders: Order[];
 }
 
 const initialState = {
@@ -50,6 +67,7 @@ const initialState = {
     orders: [],
     order: {} as Order,
     loading: false,
+    allOrders: [],
 } as ProductState;
 
 const orderSlice = createSlice({
@@ -76,6 +94,17 @@ const orderSlice = createSlice({
             state.order = { ...payload };
         });
         builder.addCase(getOrderById.rejected, (state, action) => {
+            if (action.payload) {
+                state.error = "Have got an exception!";
+            } else {
+                state.error = action.error.message;
+            }
+        });
+
+        builder.addCase(getAllOrder.fulfilled, (state, { payload }) => {
+            state.allOrders = [...payload];
+        });
+        builder.addCase(getAllOrder.rejected, (state, action) => {
             if (action.payload) {
                 state.error = "Have got an exception!";
             } else {

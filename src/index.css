@@ -1,8 +1,9 @@
 * {
-    font-family: 'Open Sans', sans-serif !important;
+    font-family: 'Open Sans', sans-serif;
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-size: 14px;
 }
 
 :root {
@@ -14,9 +15,11 @@
     border-radius: "4px";
 }
 
-.css-f3jnds-MuiDataGrid-columnHeaders {
+.MuiDataGrid-columnHeaders {
     max-height: 36px !important;
     min-height: 36px !important;
+    background-color: #ddd;
+    border-radius: unset !important;
 }
 
 .MuiDataGrid-cell {
@@ -59,6 +62,7 @@
 
 .MuiDataGrid-root {
     border: 1px solid #cdcdcd !important;
+    border-radius: unset !important;
 }
 
 .multi-range-slider .thumb::before {
@@ -234,6 +238,8 @@ select {
     display: block;
     height: 36px;
     line-height: 36px;
+    text-align: left;
+    padding-left: 24px;
 }
 
 .header-avatar__link:hover {
@@ -255,4 +261,38 @@ select {
         opacity: 1;
         transform: scale(1);
     }
+}
+
+.MuiDataGrid-columnSeparator {
+    display: none;
+}
+
+.MuiDataGrid-columnHeaderTitle {
+    text-transform: uppercase !important;
+    font-size: 600;
+}
+
+.header-table {
+    border-right: 1px solid #cdcdcd;
+}
+
+.MuiDataGrid-root .MuiDataGrid-cell:focus-within {
+    outline: unset !important;
+}
+
+.rank {
+    position: absolute;
+    top: 24px;
+    left: 28px;
+    background: red;
+    padding: 0 4px;
+    color: #fff;
+
+}
+
+.rank::after {
+    position: absolute;
+    content: "";
+    border: 20px;
+    border-color: blanchedalmond transparent transparent transparent;
 }

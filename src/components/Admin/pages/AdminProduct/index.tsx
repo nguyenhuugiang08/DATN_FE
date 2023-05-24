@@ -198,12 +198,7 @@ const AdminCategory = () => {
     return (
         <>
             <Box className={classes.containerBox}>
-                <Typography className={classes.headingAlias}>
-                    sản phẩm
-                    <Link to='trash-products' className={classes.linkTrash}>
-                        Thùng rác
-                    </Link>
-                </Typography>
+                <Typography className={classes.headingAlias}>sản phẩm</Typography>
                 <Button color='success' variant='contained'>
                     <Link to='create-product' className={classes.linkAddAlias}>
                         <CreateNewFolderIcon sx={{ mr: 1 }} />

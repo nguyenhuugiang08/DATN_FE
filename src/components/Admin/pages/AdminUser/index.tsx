@@ -83,9 +83,7 @@ const AdminUser = () => {
     return (
         <>
             <Box className={classes.containerBox}>
-                <Typography className={`${classes.headingAlias} ${classes.titleForm}`}>
-                    Quản lý người dùng
-                </Typography>
+                <Typography className={`${classes.headingAlias}`}>Quản lý người dùng</Typography>
             </Box>
             <div style={{ height: "auto", width: "100%" }}>
                 <DataGrid

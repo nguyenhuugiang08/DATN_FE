@@ -57,7 +57,7 @@ const NavbarAdmin = () => {
                 <Link to='/admin/news' className='navbar-admin-list__link'>
                     <ListItemButton>
                         <NewspaperIcon sx={{ fontSize: "18px", marginRight: "20px" }} />
-                        <ListItemText primary='News' />
+                        <ListItemText primary='Quản lý tin tức' />
                     </ListItemButton>
                 </Link>
             </Box>

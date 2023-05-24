@@ -12,6 +12,10 @@ const othersApi = {
         const url = "/home";
         return axiosClient.get(url);
     },
+    report: (year: string | undefined) => {
+        const url = "/report";
+        return axiosClient.get(`${url}?year=${year}`);
+    },
 };
 
 export default othersApi;

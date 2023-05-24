@@ -11,7 +11,6 @@ const AdminLayout = () => {
                 <div
                     style={{
                         padding: "20px 20px 70px",
-                        backgroundColor: "#edf1f5",
                         height: "calc(100vh - 72px)",
                         overflowX: "hidden",
                         overflowY: "auto",
